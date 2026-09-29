@@ -26,3 +26,14 @@ npm run dev   # http://localhost:3000
   de cada sabor).
 - **Sucursales**: faltan direcciones y horarios de casi todas.
 - **WhatsApp de contacto** (`11 4000-1910`) venía del diseño; confirmar.
+
+## Al compartir el enlace
+
+La imagen para redes (`app/opengraph-image.tsx`), el favicon (`app/icon.tsx`)
+y el ícono del celular (`app/apple-icon.tsx`) se generan solos a partir de las
+ilustraciones de `public/assets`.
+
+Para que las redes encuentren la imagen, el sitio necesita saber su dirección:
+cuando haya dominio propio, definir `NEXT_PUBLIC_SITE_URL` (por ejemplo
+`https://melano.com.ar`). En Vercel, sin esa variable se usa la dirección de
+producción del proyecto.
