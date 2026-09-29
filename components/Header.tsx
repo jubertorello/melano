@@ -36,8 +36,9 @@ export default function Header() {
   return (
     <header ref={ref} className="sticky top-0 z-[60] border-b border-cafe/14 bg-crema">
       <div className="flex flex-wrap justify-center gap-[10px] bg-oliva px-5 py-[9px] text-center text-[12px] leading-none uppercase tracking-[.14em] text-papel">
-        <span>Desde 1910</span>
-        <span className="opacity-50">·</span>
+        {/* En el móvil se oculta para que la barra entre en una sola línea */}
+        <span className="hidden sm:inline">Desde 1910</span>
+        <span className="hidden opacity-50 sm:inline">·</span>
         <span>Helados y cafetería</span>
         <span className="opacity-50">·</span>
         <Link href="/pedidos" className="text-papel underline underline-offset-[3px] hover:text-papel">Pedí helado</Link>
