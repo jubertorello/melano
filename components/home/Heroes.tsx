@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import AutoVideo from "@/components/home/AutoVideo";
+import FondoVideos from "@/components/home/FondoVideos";
 
 // Las tres portadas de la home: recetario (/), videos en arco (/version-2)
 // y videos de fondo (/version-3).
@@ -135,35 +136,35 @@ export function HeroVideos() {
   );
 }
 
-// Los mismos tres videos de la versión 2, pero de fondo a sangre, con una
-// capa café por encima para que el texto (en crema) se lea. En el móvil queda
-// solo el del medio, a pantalla completa.
+// Los mismos tres videos de la versión 2, pero de fondo a sangre (el de
+// pistacho a la derecha), con una capa café a la izquierda para que el texto
+// (en crema) se lea; a la derecha los videos quedan con su color real. Pietro
+// va chiquito abajo a la derecha. Los videos pasan uno detrás del otro a
+// pantalla completa (ver FondoVideos).
+const VIDEOS_FONDO = [...VIDEOS.slice(1), VIDEOS[0]].map((v) => ({
+  src: `/assets/${v.src}.mp4`,
+  poster: `/assets/poster-${v.src.replace("video-", "")}.jpg`,
+  label: v.label,
+}));
+
 export function HeroFondo() {
   return (
     <section data-hero-anim="" className="relative isolate flex min-h-[clamp(580px,86svh,820px)] items-center overflow-hidden bg-cafe">
-      <div className="absolute inset-0 -z-10 grid grid-cols-1 sm:grid-cols-3">
-        {VIDEOS.map((v, i) => (
-          <div key={v.src} className={`relative ${i === 1 ? "" : "hidden sm:block"}`}>
-            <AutoVideo
-              src={`/assets/${v.src}.mp4`} poster={`/assets/poster-${v.src.replace("video-", "")}.jpg`}
-              preload="metadata" aria-label={v.label}
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-          </div>
-        ))}
+      <div className="absolute inset-0 -z-10">
+        <FondoVideos videos={VIDEOS_FONDO} />
       </div>
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(89,50,22,.92)_0%,rgba(89,50,22,.55)_55%,rgba(89,50,22,.3)_100%)] sm:bg-[linear-gradient(90deg,rgba(89,50,22,.9)_0%,rgba(89,50,22,.6)_45%,rgba(89,50,22,.15)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[linear-gradient(0deg,rgba(89,50,22,.92)_0%,rgba(89,50,22,.6)_50%,rgba(89,50,22,0)_85%)] sm:bg-[linear-gradient(90deg,rgba(89,50,22,.9)_0%,rgba(89,50,22,.6)_35%,rgba(89,50,22,0)_62%)]" />
 
       <div className="mx-auto w-full max-w-[1280px] px-6 pt-[clamp(120px,30svh,200px)] pb-[clamp(48px,7vw,96px)] sm:pt-[clamp(48px,7vw,96px)]">
         <Textos min="max-w-[480px]" claro />
       </div>
 
-      <span
-        className="absolute right-[clamp(16px,4vw,56px)] bottom-[clamp(20px,4vw,48px)] hidden rotate-[-6deg] text-center font-hand text-[clamp(22px,2.6vw,30px)] leading-[1.05] font-medium text-papel sm:block"
-        style={{ animation: "hUp .8s ease-out 1.4s both" }}
-      >
-        recién hecho,<br />todos los días
-      </span>
+      {/* Pietro chiquito, abajo a la derecha */}
+      <Image
+        src="/assets/pietro-cucurucho.png" alt="Pietro con un cucurucho" width={700} height={1148} priority
+        className="absolute right-4 bottom-4 h-[110px] w-auto drop-shadow-[0_10px_18px_rgba(0,0,0,.35)] sm:right-[clamp(20px,3vw,48px)] sm:bottom-[clamp(20px,3vw,40px)] sm:h-[clamp(140px,14vw,200px)]"
+        style={{ transformOrigin: "50% 100%", animation: "hRise .9s cubic-bezier(.2,.8,.2,1) .5s both" }}
+      />
     </section>
   );
 }
