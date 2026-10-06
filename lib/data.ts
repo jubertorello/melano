@@ -34,9 +34,12 @@ export type Sabor = {
   img: string | null;
 };
 
+// Por ahora las fotos están apagadas y cada tarjeta muestra el color del
+// sabor. Cuando haya fotos propias: reemplazar las de public/sabores/,
+// actualizar el mapa IMG y poner esto en true.
+const MOSTRAR_FOTOS = false;
+
 // OJO: fotos de EJEMPLO que vinieron con el diseño, no son de Melano.
-// Reemplazarlas por fotos propias antes de publicar (o dejar el mapa vacío
-// y se ve el color de cada sabor).
 const IMG: Record<string, string> = {
   "Chocolate": "chocolate-21-chocolate-amazonas",
   "Chocolate con almendras": "chocolate-23-chocolate-con-almendras",
@@ -81,7 +84,7 @@ const IMG: Record<string, string> = {
 
 const S = (nombre: string, cat: CategoriaId, desc: string, color: string, clasico = false, tags: string[] = []): Sabor => ({
   nombre, cat, desc, color, tags, clasico,
-  img: IMG[nombre] ? `/sabores/${IMG[nombre]}.jpg` : null,
+  img: MOSTRAR_FOTOS && IMG[nombre] ? `/sabores/${IMG[nombre]}.jpg` : null,
 });
 
 export const SABORES: Sabor[] = [

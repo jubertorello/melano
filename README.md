@@ -18,9 +18,9 @@ npm run dev   # http://localhost:3000
 
 ## Pendientes antes de publicar
 
-- **Fotos de sabores**: las de `public/sabores/` son de ejemplo, no son de
-  Melano. Reemplazarlas o vaciar el mapa `IMG` de `lib/data.ts` (se ve el color
-  de cada sabor).
+- **Fotos de sabores**: por ahora están apagadas (`MOSTRAR_FOTOS` en
+  `lib/data.ts`) y se ve el color de cada sabor. Las de `public/sabores/` son de
+  ejemplo, no son de Melano: reemplazarlas antes de volver a prenderlas.
 - **Sucursales**: faltan direcciones de casi todas (los horarios se sacaron por ahora).
 - **WhatsApp de contacto** (`11 4000-1910`) venía del diseño; confirmar.
 
