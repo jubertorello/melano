@@ -3,7 +3,7 @@ import Link from "next/link";
 import AutoVideo from "@/components/home/AutoVideo";
 import FondoVideos from "@/components/home/FondoVideos";
 
-// Las tres portadas de la home: recetario (/), videos en arco (/version-2)
+// Las tres portadas de la home: videos en arco (/), recetario (/version-2)
 // y videos de fondo (/version-3).
 
 const ease = "cubic-bezier(.2,.7,.2,1)";

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const INCLUYE = [
   ["01", "Producto y recetas", "Helado elaborado en nuestra fábrica y recetario de cafetería y pastelería estandarizado."],
-  ["02", "Local y marca", "Proyecto de arquitectura, identidad, packaging y todo el universo visual de Pietro."],
+  ["02", "Local y marca", "Moodboard de arquitectura, identidad, packaging y todo el universo visual de Pietro."],
   ["03", "Capacitación", "Formación del equipo en producto, servicio y atención que reconoce a cada cliente por su nombre."],
   ["04", "Acompañamiento", "Gestión, proveedores y marketing compartido para que el negocio funcione desde el día uno."],
 ];
@@ -33,7 +33,7 @@ export default function FranquiciasPage() {
               Una receta de más de 100 años, lista para tu ciudad.
             </h1>
             <p className="m-0 max-w-[480px] text-[18px] leading-[1.6] font-light text-oliva-claro">
-              Queremos crecer sin perder la esencia. Por eso buscamos socios que cuiden cada detalle como si fuera la primera heladería de Pietro.
+              Queremos crecer sin perder la esencia. Por eso buscamos socios estratégicos que cuiden cada detalle como si fuera la primera heladería de Pietro.
             </p>
             <a href="#form" className="btn self-start bg-naranja text-crema hover:bg-naranja-oscuro hover:text-crema">Quiero información</a>
           </div>
@@ -86,7 +86,7 @@ export default function FranquiciasPage() {
           <div className="flex flex-col gap-5">
             <h2 className="m-0 font-serif text-[clamp(40px,5vw,64px)] leading-none font-normal text-balance">Contanos dónde te imaginás tu Melano.</h2>
             <p className="m-0 max-w-[440px] text-[17px] leading-[1.6] font-light text-oliva-claro">
-              También podés escribirnos a <a href={`mailto:${CONTACTO.emailFranquicias}`} className="text-papel hover:text-papel">{CONTACTO.emailFranquicias}</a>.
+              También podés escribirnos a <a href={`mailto:${CONTACTO.email}`} className="text-papel hover:text-papel">{CONTACTO.email}</a>.
             </p>
             <Image src="/assets/sticker-recetas.png" alt="" width={800} height={656} className="mt-3 h-auto w-[clamp(150px,20vw,260px)] -rotate-[5deg]" />
           </div>

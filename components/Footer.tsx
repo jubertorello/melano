@@ -24,7 +24,6 @@ export default function Footer() {
         <div className={col}>
           <span className={title}>Sumate</span>
           <Link href="/franquicias" className={link}>Franquicias</Link>
-          <Link href="/trabaja" className={link}>Trabajá con nosotros</Link>
           <Link href="/contacto" className={link}>Contacto</Link>
         </div>
         <div className={col}>

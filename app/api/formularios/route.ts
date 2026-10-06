@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
 
-// Recibe los tres formularios del sitio: equipo, franquicia y contacto.
+// Recibe los formularios del sitio: franquicia y contacto.
 //
 // TODO: todavía no se guardan ni se envían a ningún lado, solo se registran
 // en el log del servidor. Conectar acá el destino real (email con Resend,
 // Supabase, una planilla…) cuando esté definido.
-const TIPOS = new Set(["equipo", "franquicia", "contacto"]);
+const TIPOS = new Set(["franquicia", "contacto"]);
 const MAX_CV = 5 * 1024 * 1024;
 
 export async function POST(req: Request) {

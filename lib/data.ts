@@ -177,8 +177,7 @@ export const PRECIOS = [
 ];
 
 export const CONTACTO = {
-  email: "hola@melano.com.ar",
-  emailFranquicias: "franquicias@melano.com.ar",
+  email: "info@heladosmelano.com",
   instagram: "https://www.instagram.com/heladosmelano",
   instagramUser: "@heladosmelano",
   whatsapp: "https://wa.me/5491140001910",

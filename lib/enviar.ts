@@ -4,7 +4,7 @@ export const telValido = (t: string) => t.replace(/\D/g, "").length >= 8;
 // Manda un formulario a /api/formularios. Devuelve null si salió bien, o el
 // mensaje de error para mostrar.
 export async function enviarFormulario(
-  tipo: "equipo" | "franquicia" | "contacto",
+  tipo: "franquicia" | "contacto",
   campos: Record<string, string | string[] | File | null>,
 ): Promise<string | null> {
   const fd = new FormData();

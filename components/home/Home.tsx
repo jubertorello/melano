@@ -10,9 +10,9 @@ const DE_TEMPORADA = SABORES.filter((s) => s.cat === "temporada");
 
 const linkFlecha = "self-start text-[13px] leading-none font-semibold uppercase tracking-[.12em] text-cafe underline-offset-[6px] hover:text-cafe";
 
-// Tres portadas: "recetario" (Pietro con el cucurucho, en /),
-// "videos" (tres videos en arco, en /version-2) y "fondo" (los mismos videos
-// de fondo, en /version-3).
+// Tres portadas: "videos" (tres videos en arco, en /), "recetario" (Pietro
+// con el cucurucho, en /version-2) y "fondo" (los mismos videos de fondo, en
+// /version-3).
 export default function Home({ portada }: { portada: "recetario" | "videos" | "fondo" }) {
   return (
     <>
@@ -162,13 +162,6 @@ export default function Home({ portada }: { portada: "recetario" | "videos" | "f
             texto="Recetas, marca y acompañamiento de más de un siglo de oficio." textoClass="text-oliva-claro"
             cta="Conocé el modelo →" ctaClass="bg-naranja text-crema"
             img={<Image src="/assets/logo-full-beige.png" alt="Melano" width={900} height={628} className="mb-[clamp(36px,4.5vw,56px)] ml-auto block h-auto w-[clamp(72px,10vw,160px)] min-w-0 flex-[0_1_auto] opacity-95" />}
-          />
-          <Sumate
-            href="/trabaja" bg="bg-naranja text-crema hover:text-crema"
-            eyebrow="Unite a nuestro equipo" titulo="En esta mesa siempre hay lugar."
-            texto="Heladeros, baristas, pasteleros y anfitriones." textoClass=""
-            cta="Postulate →" ctaClass="bg-papel text-naranja"
-            img={<Image src="/assets/pietro-cafe.png" alt="" width={750} height={1033} className="mr-[-10px] ml-auto block h-auto w-[clamp(110px,14vw,180px)] min-w-0 flex-[0_1_auto]" />}
           />
         </div>
       </section>

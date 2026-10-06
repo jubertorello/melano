@@ -10,7 +10,6 @@ const LINKS = [
   { href: "/sabores", label: "Sabores" },
   { href: "/#sucursales", label: "Sucursales" },
   { href: "/franquicias", label: "Franquicias" },
-  { href: "/trabaja", label: "Trabajá con nosotros" },
   { href: "/contacto", label: "Contacto" },
 ];
 

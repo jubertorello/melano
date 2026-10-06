@@ -1,5 +1,5 @@
 import Home from "@/components/home/Home";
 
 export default function Page() {
-  return <Home portada="recetario" />;
+  return <Home portada="videos" />;
 }
