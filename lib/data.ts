@@ -34,8 +34,8 @@ export type Sabor = {
   img: string | null;
 };
 
-// Por ahora las fotos están apagadas y cada tarjeta muestra el color del
-// sabor. Cuando haya fotos propias: reemplazar las de public/sabores/,
+// Por ahora las fotos están apagadas y las tarjetas muestran solo el texto.
+// Cuando haya fotos propias: reemplazar las de public/sabores/,
 // actualizar el mapa IMG y poner esto en true.
 const MOSTRAR_FOTOS = false;
 

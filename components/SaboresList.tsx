@@ -55,9 +55,11 @@ export default function SaboresList() {
             <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,150px),1fr))] gap-[clamp(10px,2vw,16px)]">
               {g.items.map((s) => (
                 <div key={s.nombre} className="flex flex-col gap-3 rounded-[18px] bg-papel px-[clamp(10px,1.6vw,14px)] pt-[clamp(10px,1.6vw,14px)] pb-[clamp(14px,2vw,18px)]">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[12px]" style={{ background: s.color }}>
-                    {s.img && <Image src={s.img} alt={s.nombre} fill sizes="(min-width: 1280px) 200px, (min-width: 640px) 25vw, 50vw" className="object-cover" />}
-                  </div>
+                  {s.img && (
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-[12px]" style={{ background: s.color }}>
+                      <Image src={s.img} alt={s.nombre} fill sizes="(min-width: 1280px) 200px, (min-width: 640px) 25vw, 50vw" className="object-cover" />
+                    </div>
+                  )}
                   <div className="flex min-w-0 flex-col gap-[6px]">
                     <span className="font-serif text-[clamp(19px,2vw,22px)] leading-[1.1]">
                       {s.nombre}

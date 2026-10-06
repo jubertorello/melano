@@ -72,9 +72,11 @@ export default function Home({ portada }: { portada: "recetario" | "videos" | "f
                 href="/sabores"
                 className="flex flex-col gap-[clamp(10px,1.6vw,16px)] rounded-[20px] bg-crema px-[clamp(12px,2vw,20px)] pt-[clamp(12px,2vw,22px)] pb-[clamp(14px,2vw,24px)] text-cafe no-underline transition-[transform,box-shadow] duration-250 hover:-translate-y-1 hover:text-cafe hover:shadow-[0_18px_30px_-18px_rgba(89,50,22,.35)]"
               >
-                <div className="relative mx-[-4px] mt-[-6px] aspect-[4/5] overflow-hidden rounded-[14px]" style={{ background: s.color }}>
-                  {s.img && <Image src={s.img} alt={s.nombre} fill sizes="(min-width: 1280px) 200px, (min-width: 640px) 25vw, 50vw" className="object-cover" />}
-                </div>
+                {s.img && (
+                  <div className="relative mx-[-4px] mt-[-6px] aspect-[4/5] overflow-hidden rounded-[14px]" style={{ background: s.color }}>
+                    <Image src={s.img} alt={s.nombre} fill sizes="(min-width: 1280px) 200px, (min-width: 640px) 25vw, 50vw" className="object-cover" />
+                  </div>
+                )}
                 <div className="flex flex-col gap-2">
                   <span className="font-serif text-[clamp(19px,2vw,24px)] leading-[1.1]">{s.nombre}</span>
                   <span className="text-[clamp(13px,1.2vw,14px)] leading-[1.45] font-light text-cafe-suave">{s.desc}</span>
