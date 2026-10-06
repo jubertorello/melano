@@ -66,7 +66,6 @@ export default function Sucursales() {
                     )}
                   </span>
                   <span className="text-[15px] leading-[1.4] font-light">{lineaDir(s)}, Córdoba</span>
-                  <span className="text-[14px] leading-[1.4] font-light opacity-80">{s.horario}</span>
                 </button>
                 {a && (
                   <div className="mt-[6px] flex flex-wrap gap-2 border-t border-crema/20 pt-[14px]">

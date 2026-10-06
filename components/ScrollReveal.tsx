@@ -39,30 +39,44 @@ export default function ScrollReveal() {
       });
     });
 
+    const revelar = (el: HTMLElement) => {
+      el.classList.add("is-visible");
+      io.unobserve(el);
+      // Al terminar se sacan las clases para no pisar las transiciones
+      // propias del elemento (el hover de las tarjetas, por ejemplo)
+      // (por tiempo y no con transitionend, que se pierde si la pestaña
+      // queda en segundo plano a mitad de la animación)
+      const espera = 850 + (parseInt(el.style.transitionDelay) || 0);
+      setTimeout(() => {
+        el.classList.remove("reveal", "is-visible");
+        el.style.transitionDelay = "";
+      }, espera);
+    };
+
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          const el = e.target as HTMLElement;
-          el.classList.add("is-visible");
-          io.unobserve(el);
-          // Al terminar se sacan las clases para no pisar las transiciones
-          // propias del elemento (el hover de las tarjetas, por ejemplo)
-          // (por tiempo y no con transitionend, que se pierde si la pestaña
-          // queda en segundo plano a mitad de la animación)
-          const espera = 850 + (parseInt(el.style.transitionDelay) || 0);
-          setTimeout(() => {
-            el.classList.remove("reveal", "is-visible");
-            el.style.transitionDelay = "";
-          }, espera);
+          if (e.isIntersecting) revelar(e.target as HTMLElement);
         });
       },
       { rootMargin: "0px 0px -10% 0px" },
     );
+
+    // Lo que está al final de la página (la franja de abajo del pie) nunca
+    // llega a entrar en ese 90% de la pantalla, así que al tocar fondo se
+    // muestra todo lo que quede pendiente.
+    const alFondo = () => {
+      if (window.innerHeight + window.scrollY < document.documentElement.scrollHeight - 2) return;
+      targets.forEach((t) => {
+        if (t.classList.contains("reveal") && !t.classList.contains("is-visible")) revelar(t);
+      });
+    };
+    window.addEventListener("scroll", alFondo, { passive: true });
     targets.forEach((t) => io.observe(t));
 
     return () => {
       io.disconnect();
+      window.removeEventListener("scroll", alFondo);
       targets.forEach((t) => {
         t.classList.remove("reveal", "is-visible");
         t.style.transitionDelay = "";

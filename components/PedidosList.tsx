@@ -38,7 +38,6 @@ export default function PedidosList() {
                   {s.nueva && <span className="rounded-full bg-naranja px-2 py-[5px] text-[10px] leading-none font-semibold uppercase tracking-[.14em] text-crema">Nueva</span>}
                 </span>
                 <span className="text-[15px] leading-[1.4] font-light">{lineaDir(s)}, Córdoba</span>
-                <span className="text-[14px] leading-[1.4] font-light text-cafe-suave">{s.horario}</span>
               </div>
               <div className="flex flex-col gap-2">
                 {s.rappi && (

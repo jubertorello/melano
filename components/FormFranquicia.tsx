@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import AceptoPrivacidad from "@/components/AceptoPrivacidad";
 import Pill from "@/components/Pill";
 import { EMAIL_RE, enviarFormulario, telValido } from "@/lib/enviar";
 
 const VACIO = { nombre: "", email: "", tel: "", ciudad: "", local: "", capital: "", msg: "" };
 type Campos = typeof VACIO;
-type Errores = { nombre?: boolean; email?: boolean; tel?: boolean; ciudad?: boolean; envio?: string };
+type Errores = { nombre?: boolean; email?: boolean; tel?: boolean; ciudad?: boolean; acepto?: boolean; envio?: string };
 
 const LOCAL = ["Sí, propio", "Sí, alquilado", "Todavía no"];
 const input = "field-input bg-papel";
@@ -15,6 +16,7 @@ const input = "field-input bg-papel";
 export default function FormFranquicia() {
   const [f, setF] = useState<Campos>(VACIO);
   const [err, setErr] = useState<Errores>({});
+  const [acepto, setAcepto] = useState(false);
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
 
@@ -26,7 +28,7 @@ export default function FormFranquicia() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const er = { nombre: !f.nombre.trim(), email: !EMAIL_RE.test(f.email), tel: !telValido(f.tel), ciudad: !f.ciudad.trim() };
+    const er = { nombre: !f.nombre.trim(), email: !EMAIL_RE.test(f.email), tel: !telValido(f.tel), ciudad: !f.ciudad.trim(), acepto: !acepto };
     if (Object.values(er).some(Boolean)) return setErr(er);
     setSending(true);
     const fallo = await enviarFormulario("franquicia", f);
@@ -38,6 +40,7 @@ export default function FormFranquicia() {
   const reset = () => {
     setSent(false);
     setF(VACIO);
+    setAcepto(false);
     setErr({});
   };
 
@@ -99,6 +102,9 @@ export default function FormFranquicia() {
             <span className="field-label">Contanos un poco de vos (opcional)</span>
             <textarea value={f.msg} onChange={set("msg")} rows={3} placeholder="¿Por qué Melano? ¿Tenés experiencia en gastronomía?" className={`${input} resize-y leading-[1.45]`} />
           </label>
+          <div className="col-span-full">
+            <AceptoPrivacidad checked={acepto} onChange={(v) => { setAcepto(v); setErr((s) => ({ ...s, acepto: false })); }} error={err.acepto} />
+          </div>
           <div className="col-span-full mt-1 flex flex-wrap items-center justify-between gap-4">
             <span className={err.envio ? "field-error leading-[1.4]" : "text-[13px] leading-[1.4] font-light text-cafe-suave"}>
               {err.envio ?? "Te respondemos en menos de 72 h hábiles."}

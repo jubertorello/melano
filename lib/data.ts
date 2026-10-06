@@ -141,15 +141,14 @@ export type Sucursal = {
   /** URL de la tienda en PedidosYa, o null */
   pedidosya: string | null;
   direccion: string;
-  horario: string;
   nueva: boolean;
   central: boolean;
 };
 
-// Falta: dirección exacta y horarios de casi todas.
+// Falta: dirección exacta de casi todas.
 const SU = (id: string, nombre: string, ciudad: string, maps: string, tel: string | null = null, wa: string | null = null, extra: Partial<Sucursal> = {}): Sucursal => ({
   id, nombre, ciudad, provincia: "Córdoba", maps, tel, wa,
-  rappi: null, pedidosya: null, direccion: "", horario: "Horarios a confirmar",
+  rappi: null, pedidosya: null, direccion: "",
   nueva: false, central: false, ...extra,
 });
 

@@ -33,8 +33,17 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto flex max-w-[1280px] flex-wrap justify-between gap-4 border-t border-papel/18 px-6 pt-[22px] pb-7 text-[13px] leading-[1.4] font-light text-oliva-texto">
-        <span>© {new Date().getFullYear()} Melano Helados y Cafetería</span>
+        <span>
+          © {new Date().getFullYear()} Melano Helados y Cafetería ·{" "}
+          <Link href="/privacidad" className="text-oliva-texto underline underline-offset-4 hover:text-papel">Política de privacidad</Link>
+        </span>
         <span className="font-hand text-[20px] leading-none font-medium text-papel">Volver sin irte.</span>
+        <span>
+          Sitio by{" "}
+          <a href="https://www.instagram.com/honestechfactory/" target="_blank" rel="noopener" className="text-papel underline underline-offset-4 hover:text-papel">
+            Honest Tech Factory
+          </a>
+        </span>
       </div>
     </footer>
   );
