@@ -88,7 +88,7 @@ export default function FranquiciasPage() {
             <p className="m-0 max-w-[440px] text-[17px] leading-[1.6] font-light text-oliva-claro">
               También podés escribirnos a <a href={`mailto:${CONTACTO.email}`} className="text-papel hover:text-papel">{CONTACTO.email}</a>.
             </p>
-            <Image src="/assets/sticker-recetas.png" alt="" width={800} height={656} className="mt-3 h-auto w-[clamp(150px,20vw,260px)] -rotate-[5deg]" />
+            <Image src="/assets/pietro-cafe.png" alt="" width={750} height={1033} className="mt-3 h-auto w-[clamp(130px,18vw,220px)]" />
           </div>
           <FormFranquicia />
         </div>

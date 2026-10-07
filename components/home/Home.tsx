@@ -163,7 +163,7 @@ export default function Home({ portada }: { portada: "recetario" | "videos" | "f
             eyebrow="Franquicias" titulo="Llevá Melano a tu ciudad."
             texto="Recetas, marca y acompañamiento de más de un siglo de oficio." textoClass="text-oliva-claro"
             cta="Conocé el modelo →" ctaClass="bg-naranja text-crema"
-            img={<Image src="/assets/logo-full-beige.png" alt="Melano" width={900} height={628} className="mb-[clamp(36px,4.5vw,56px)] ml-auto block h-auto w-[clamp(72px,10vw,160px)] min-w-0 flex-[0_1_auto] opacity-95" />}
+            img={<Image src="/assets/pietro-cucurucho.png" alt="" width={700} height={1148} className="block h-auto w-[clamp(110px,14vw,170px)] flex-none max-sm:self-center" />}
           />
         </div>
       </section>
@@ -173,16 +173,14 @@ export default function Home({ portada }: { portada: "recetario" | "videos" | "f
 
 function Sumate(p: { href: string; bg: string; eyebrow: string; titulo: string; texto: string; textoClass: string; cta: string; ctaClass: string; img: React.ReactNode }) {
   return (
-    <Link href={p.href} className={`relative flex min-h-[360px] flex-col justify-between gap-7 overflow-hidden rounded-[28px] p-[clamp(28px,4vw,48px)] no-underline transition-transform duration-250 hover:-translate-y-1 ${p.bg}`}>
-      <div className="relative z-[1] flex max-w-[360px] flex-col gap-4">
+    <Link href={p.href} className={`relative flex min-h-[360px] items-center justify-between gap-[clamp(20px,4vw,56px)] max-sm:flex-col max-sm:items-start overflow-hidden rounded-[28px] p-[clamp(28px,4vw,48px)] no-underline transition-transform duration-250 hover:-translate-y-1 ${p.bg}`}>
+      <div className="relative z-[1] flex max-w-[420px] flex-col gap-4">
         <span className="eyebrow">{p.eyebrow}</span>
         <h2 className="m-0 font-serif text-[clamp(36px,4vw,54px)] leading-[1.02] font-normal tracking-[-.015em] text-balance">{p.titulo}</h2>
         <p className={`m-0 text-[16px] leading-[1.55] font-light ${p.textoClass}`}>{p.texto}</p>
+        <span className={`mt-3 self-start rounded-full px-[22px] py-4 text-[13px] leading-none font-semibold uppercase tracking-[.12em] ${p.ctaClass}`}>{p.cta}</span>
       </div>
-      <div className="mb-[clamp(-48px,-4vw,-28px)] flex flex-wrap items-end justify-between gap-4">
-        <span className={`mb-[clamp(28px,4vw,48px)] flex-none rounded-full px-[22px] py-4 text-[13px] leading-none font-semibold uppercase tracking-[.12em] ${p.ctaClass}`}>{p.cta}</span>
-        {p.img}
-      </div>
+      {p.img}
     </Link>
   );
 }
